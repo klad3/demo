@@ -20,10 +20,10 @@ public class Horario {
     private Integer horaFin;
 
     @ManyToOne
-    @JoinColumn(name = "idCurso", insertable = false, updatable = false)
+    @JoinColumn(name = "idCurso")
     private Curso curso;
 
     @ManyToOne
-    @JoinColumn(name = "idProfesor", insertable = false, updatable = false)
+    @JoinColumn(name = "idProfesor")
     private Profesor profesor;
 }

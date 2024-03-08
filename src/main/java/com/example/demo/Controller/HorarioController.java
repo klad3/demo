@@ -29,10 +29,8 @@ public class HorarioController {
     private final HorarioService horarioService;
 
     @PostMapping
-    public ResponseEntity<Horario> crearHorario(@RequestBody Horario Horario, @RequestParam int idProfesor, @RequestParam int idCurso) {
-        Long idP = new Long(idProfesor);
-        Long idC = new Long(idCurso);
-        Horario HorarioMatriculado = horarioService.crearHorario(Horario, idP, idC);
+    public ResponseEntity<Horario> crearHorario(@RequestBody Horario Horario, @RequestParam("idProfesor") Long idProfesor, @RequestParam("idCurso") Long idCurso) {
+        Horario HorarioMatriculado = horarioService.crearHorario(Horario, idProfesor, idCurso);
      
         return new ResponseEntity<>(HorarioMatriculado, HttpStatus.CREATED);
     }
