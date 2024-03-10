@@ -17,14 +17,10 @@ public class Clase {
     private Integer idClase;
 
     @ManyToOne
-    @JoinColumn(name = "idCurso", insertable = false, updatable = false)
-    private Curso curso;
-
-    @ManyToOne
     @JoinColumn(name = "idAula", insertable = false, updatable = false)
     private Aula aula;
 
     @ManyToOne
-    @JoinColumn(name = "idProfesor", insertable = false, updatable = false)
-    private Profesor profesor;
+    @JoinColumn(name = "idHorario", insertable = false, updatable = false)
+    private Horario horario;
 }
