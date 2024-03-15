@@ -29,6 +29,17 @@ public class UsuarioServiceImpl implements UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
+    public void actualizarUsuario(Long id, Usuario usuarioActualizado) {
+        Usuario usuario = usuarioRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Usuario no encontrado"));
+
+        usuario.setNombres(usuarioActualizado.getNombres());
+        usuario.setApellidos(usuarioActualizado.getApellidos());
+        usuario.setContrasenia(usuarioActualizado.getContrasenia());
+
+        usuarioRepository.save(usuario);
+    }
+
     public void eliminarUsuario(Long id) {
         usuarioRepository.deleteById(id);
     }

@@ -13,4 +13,6 @@ public interface UsuarioService {
     Usuario guardarUsuario(Usuario usuario);
 
     void eliminarUsuario(Long id);
+
+    void actualizarUsuario(Long id, Usuario usuario);
 }
