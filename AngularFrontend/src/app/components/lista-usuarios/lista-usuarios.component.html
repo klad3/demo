@@ -1,0 +1,21 @@
+<app-crear-usuario [usuarioSeleccionado]="usuario" ></app-crear-usuario>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Contraseña</th>
+    </tr>
+    @for (usuario of usuarios; track usuario.idUsuario) {
+        <tr>
+            <td>{{ usuario.idUsuario }}</td>
+            <td>{{ usuario.nombres }}</td>
+            <td>{{ usuario.apellidos }}</td>
+            <td>{{ usuario.contrasenia }}</td>
+            <td>
+                <button type="button" (click)="loadUsuario(usuario)">Editar</button>
+                <button type="button" (click)="deleteUsuario(usuario.idUsuario)">Eliminar</button>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,30 @@
+<h5 class="mb-5 text-lg font-bold tracking-tight text-gray-900 dark:text-white ">Detalles de usuario</h5>
+<form [formGroup]="usuarioForm" class="w-full" (ngSubmit)="onSubmit()" novalidate>
+  <div class="mb-5">
+    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombres</label>
+    <input type="text" id="name" class="form-control" placeholder="Nombres..." formControlName="nombres">
+    @if (usuarioForm.get('nombres')?.hasError('required') && usuarioForm.get('nombres')?.touched) {
+    <div class="form-error">El nombre es requerido</div>
+    }
+  </div>
+  <div class="mb-5">
+    <label for="lastname" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellidos</label>
+    <input type="text" id="lastname" class="form-control" placeholder="Apellidos..." formControlName="apellidos">
+    @if (usuarioForm.get('apellidos')?.hasError('required') && usuarioForm.get('apellidos')?.touched) {
+    <div class="form-error">El apellido es requerido</div>
+    }
+  </div>
+  <div class="mb-5">
+    <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
+    <input type="password" id="password" class="form-control" formControlName="contrasenia">
+    @if (usuarioForm.get('contrasenia')?.hasError('required') && usuarioForm.get('contrasenia')?.touched) {
+    <div class="form-error">La contraseña es requerida</div>
+    }
+  </div>
+  <button type="submit"
+    class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Enviar</button>
+  <!-- <button type="button" (click)="onClose()"
+    class="text-white  ms-2 bg-gray-700 hover:bg-gray-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Cancelar</button>
+  -->
+
+  </form>
