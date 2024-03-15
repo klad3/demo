@@ -4,9 +4,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Entity.Profesor;
+import com.example.demo.Controller.Dto.HorarioDto;
 import com.example.demo.Entity.Curso;
 import com.example.demo.Entity.Horario;
-import com.example.demo.Repository.AulaRepository;
 import com.example.demo.Repository.CursoRepository;
 import com.example.demo.Repository.HorarioRepository;
 import com.example.demo.Repository.ProfesorRepository;
@@ -27,6 +27,7 @@ public class HorarioServiceImpl implements HorarioService {
 
     @Override
     @Transactional
+    /* 
     public Horario crearHorario(Horario Horario, Long idProfesor, Long idCurso) {
         // Encuentra el aula y asegúrate de que exista
         Profesor profesor = profesorRepository.findById(idProfesor).orElseThrow(() -> new RuntimeException("Profesor no encontrado"));
@@ -39,6 +40,22 @@ public class HorarioServiceImpl implements HorarioService {
         // Guarda el Horario, esto también debería persistir la relación debido a la cascada
         return HorarioRepository.save(Horario);
     }
+    */
+    public Horario crearHorario(HorarioDto horarioDto) {
+        Profesor profesor = profesorRepository.findById(horarioDto.getIdProfesor()).orElseThrow(() -> new RuntimeException("Profesor no encontrado"));
+        Curso curso = cursoRepository.findById(horarioDto.getIdCurso()).orElseThrow(() -> new RuntimeException("Curso no encontrado"));
+
+        Horario horario = Horario.builder()
+                .horaInicio(horarioDto.getHoraInicio())
+                .horaFin(horarioDto.getHoraFin())
+                .build();
+
+        horario.setProfesor(profesor);
+        horario.setCurso(curso);
+        
+        return HorarioRepository.save(horario);
+    }
+
 
     @Override
     public List<Horario> listarTodosLosHorarios() {

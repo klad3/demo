@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.Controller.Dto.HorarioDto;
 import com.example.demo.Entity.Horario;
 import com.example.demo.Service.HorarioService;
 
@@ -28,11 +28,21 @@ public class HorarioController {
 
     private final HorarioService horarioService;
 
+/* 
     @PostMapping
-    public ResponseEntity<Horario> crearHorario(@RequestBody Horario Horario, @RequestParam("idProfesor") Long idProfesor, @RequestParam("idCurso") Long idCurso) {
+    public ResponseEntity<Horario> crearHorario(@RequestBody Horario Horario, @RequestParam Long idProfesor, @RequestParam Long idCurso) {
         Horario HorarioMatriculado = horarioService.crearHorario(Horario, idProfesor, idCurso);
      
         return new ResponseEntity<>(HorarioMatriculado, HttpStatus.CREATED);
+    }
+*/
+    @PostMapping
+    public ResponseEntity<Horario> crearHorario(@RequestBody HorarioDto horarioDto) {
+
+        Horario NuevoHorario = horarioService.crearHorario(horarioDto);
+        
+        //return ResponseEntity.created(new URI("/api/horarios/")).build();
+        return new ResponseEntity<>(NuevoHorario, HttpStatus.CREATED);
     }
 
     @GetMapping

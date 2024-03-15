@@ -19,6 +19,6 @@ public class Profesor {
     private String correo;
 
     @OneToOne
-    @JoinColumn(name = "idUsuario", insertable = false, updatable = false)
+    @JoinColumn(name = "idUsuario")
     private Usuario usuario;
 }
