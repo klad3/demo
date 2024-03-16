@@ -30,14 +30,12 @@ public class RolServiceImpl implements RolService {
     }
 
     public void actualizarRol(Long id, Rol rolActualizado) {
-        Rol Rol = rolRepository.findById(id)
+        Rol rol = rolRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Rol no encontrado"));
+        rol.setNombre(rolActualizado.getNombre());
+        rol.setDescripcion(rolActualizado.getDescripcion());
 
-        // Actualiza los datos del Rol
-        Rol.setNombre(rolActualizado.getNombre());
-        Rol.setDescripcion(rolActualizado.getDescripcion());
-
-        rolRepository.save(Rol);
+        rolRepository.save(rol);
     }
 
     public void eliminarRol(Long id) {

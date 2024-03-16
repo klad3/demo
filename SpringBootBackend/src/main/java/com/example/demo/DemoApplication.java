@@ -27,6 +27,9 @@ public class DemoApplication {
 				registry.addMapping("/api/roles/**")
 					.allowedOrigins(angularUrl)
 					.allowedMethods("POST", "GET", "PUT", "DELETE");
+				registry.addMapping("/api/cursos/**")
+					.allowedOrigins(angularUrl)
+					.allowedMethods("POST", "GET", "PUT", "DELETE");
 			}
 		};
 	}

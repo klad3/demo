@@ -19,7 +19,7 @@ public class Curso {
 
     private String nombreCurso;
     private String descripcion;
-    private String cantidadHoras;
+    private Long cantidadHoras;
 
 
 }
