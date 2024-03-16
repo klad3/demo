@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { UsuarioPageComponent } from './pages/usuario-page/usuario-page.component';
 import { MainPageComponent } from './pages/main-page/main-page.component';
 import { RolPageComponent } from './pages/rol-page/rol-page.component';
+import { CursoPageComponent } from './pages/curso-page/curso-page.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, UsuarioPageComponent, MainPageComponent, RolPageComponent],
+  imports: [RouterOutlet, UsuarioPageComponent, MainPageComponent, RolPageComponent, CursoPageComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

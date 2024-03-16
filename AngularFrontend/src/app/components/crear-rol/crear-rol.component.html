@@ -8,7 +8,7 @@
     }
   </div>
   <div class="mb-5">
-    <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellidos</label>
+    <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Descripcion</label>
     <input type="text" id="description" class="form-control" placeholder="Descripcion..." formControlName="descripcion">
     @if (rolForm.get('descripcion')?.hasError('required') && rolForm.get('descripcion')?.touched) {
         <div class="form-error">La descripcion es requerida</div>

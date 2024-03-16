@@ -1,0 +1,21 @@
+<app-crear-curso [cursoSeleccionado]="curso" (actualizarLista)="getAllCursos()"></app-crear-curso>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+        <th>Horas</th>
+    </tr>
+    @for (curso of cursos; track curso.idCurso) {
+        <tr>
+            <td>{{ curso.idCurso }}</td>
+            <td>{{ curso.nombreCurso }}</td>
+            <td>{{ curso.descripcion }}</td>
+            <td>{{ curso.cantidadHoras }}</td>
+            <td>
+                <button type="button" (click)="loadCurso(curso)">Editar</button>
+                <button type="button" (click)="deleteCurso(curso.idCurso)">Eliminar</button>
+            </td>
+        </tr>
+    }
+</table>
