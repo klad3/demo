@@ -1,0 +1,23 @@
+<h5 class="mb-5 text-lg font-bold tracking-tight text-gray-900 dark:text-white ">Detalles de rol</h5>
+<form [formGroup]="rolForm" class="w-full" (ngSubmit)="onSubmit()" novalidate>
+  <div class="mb-5">
+    <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
+    <input type="text" id="name" class="form-control" placeholder="Nombre..." formControlName="nombre">
+    @if (rolForm.get('nombre')?.hasError('required') && rolForm.get('nombre')?.touched) {
+        <div class="form-error">El nombre es requerido</div>
+    }
+  </div>
+  <div class="mb-5">
+    <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Apellidos</label>
+    <input type="text" id="description" class="form-control" placeholder="Descripcion..." formControlName="descripcion">
+    @if (rolForm.get('descripcion')?.hasError('required') && rolForm.get('descripcion')?.touched) {
+        <div class="form-error">La descripcion es requerida</div>
+    }
+  </div>
+  <button type="submit"
+    class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Enviar</button>
+  <!-- <button type="button" (click)="onClose()"
+    class="text-white  ms-2 bg-gray-700 hover:bg-gray-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Cancelar</button>
+  -->
+
+  </form>

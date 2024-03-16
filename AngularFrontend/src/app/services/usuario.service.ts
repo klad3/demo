@@ -10,11 +10,11 @@ export class UsuarioService {
 
   constructor(private http: HttpClient) { }
 
-  url: string = 'http://localhost:8080/api/usuarios'
+  apiUrl: string = 'http://localhost:8080/api/usuarios'
   public usuario!: Usuario;
 
   getUsuarios(): Observable<Usuario[] | undefined> {
-    return this.http.get<Usuario[]>(this.url).pipe(
+    return this.http.get<Usuario[]>(this.apiUrl).pipe(
       
       catchError( (error) => {
         console.error('Error al obtener la lista de usuarios:', error);
@@ -24,7 +24,7 @@ export class UsuarioService {
   }
   
   getUsuario(id: number): Observable<Usuario | undefined>{
-    return this.http.get<Usuario>(this.url + "/" + id).pipe(
+    return this.http.get<Usuario>(this.apiUrl + "/" + id).pipe(
       catchError( (error) => {
         return of(undefined)
       })
@@ -32,7 +32,7 @@ export class UsuarioService {
   }
 
   createUsuario(usuario: Usuario): Observable<Usuario | undefined>{
-    return this.http.post<Usuario>(this.url, usuario).pipe(
+    return this.http.post<Usuario>(this.apiUrl, usuario).pipe(
       catchError( (error) => {
         return of(undefined)
       })
@@ -40,7 +40,7 @@ export class UsuarioService {
   }
 
   updateUsuario(id: number, usuario: Usuario): Observable<Usuario | undefined>{
-    return this.http.put<Usuario>(this.url + "/" + id, usuario).pipe(
+    return this.http.put<Usuario>(this.apiUrl + "/" + id, usuario).pipe(
       catchError( (error) => {
         return of(undefined)
       })
@@ -48,7 +48,7 @@ export class UsuarioService {
   }
 
   deleteUsuario(id: number): Observable<any>{
-    return this.http.delete(this.url + "/" + id).pipe(
+    return this.http.delete(this.apiUrl + "/" + id).pipe(
       catchError( (error) => {
         return of(undefined)
       })

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { Usuario } from '../../interfaces/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 import { CrearUsuarioComponent } from '../crear-usuario/crear-usuario.component';
@@ -31,8 +31,8 @@ export class ListaUsuariosComponent {
         }
       }
     )
-      throw new Error("Metodo no implementado");
   }
+  
   deleteUsuario(id: number): void {
     this.usuarioService.deleteUsuario(id).subscribe({
       next: (response) => {

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { Usuario } from '../../interfaces/usuario';
 import { UsuarioService } from '../../services/usuario.service';
 import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
@@ -13,6 +13,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 export class CrearUsuarioComponent implements OnChanges{
   usuarioForm: FormGroup;
   @Input() usuarioSeleccionado?: Usuario;
+  @Output() actualizarLista = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder, private usuarioService: UsuarioService) {
     this.usuarioForm = this.fb.group({
@@ -37,7 +38,8 @@ export class CrearUsuarioComponent implements OnChanges{
       if (this.usuarioSeleccionado) {
         this.usuarioService.updateUsuario(this.usuarioSeleccionado.idUsuario, this.usuarioForm.value).subscribe({
           next:(response) => {
-            this.usuarioForm.reset
+            this.usuarioForm.reset()
+            this.actualizarLista.emit();
           },
           error: (err) => {
             console.log(err)
@@ -46,7 +48,8 @@ export class CrearUsuarioComponent implements OnChanges{
       } else {
         this.usuarioService.createUsuario(this.usuarioForm.value).subscribe({
           next:(response) => {
-            this.usuarioForm.reset
+            this.usuarioForm.reset()
+            this.actualizarLista.emit();
           },
           error: (err) => {
             console.log(err)

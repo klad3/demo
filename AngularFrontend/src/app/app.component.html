@@ -17,6 +17,7 @@
                 <div class="list-group list-group-flush">
                     <button class="list-group-item list-group-item-action list-group-item-light p-3" (click)="cambiarEstado(0)">Home</button>
                     <button class="list-group-item list-group-item-action list-group-item-light p-3" (click)="cambiarEstado(1)">Usuarios</button>
+                    <button class="list-group-item list-group-item-action list-group-item-light p-3" (click)="cambiarEstado(2)">Roles</button>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Estudiantes</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profesores</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Cursos</a>
@@ -34,10 +35,16 @@
                         </div>
                     </div>
                 </nav>
-                @if (this.ind==0) {
-                    <app-main-page></app-main-page>
-                } @else {
-                    <app-usuario-page></app-usuario-page>
+                @switch (this.ind) {
+                    @case (0) {
+                        <app-main-page />
+                    }
+                    @case (1) {
+                        <app-usuario-page />
+                    }
+                    @case (2) {
+                        <app-rol-page />
+                    }
                 }
             </div>
         </div>

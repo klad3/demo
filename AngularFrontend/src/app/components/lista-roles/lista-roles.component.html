@@ -1,0 +1,19 @@
+<app-crear-rol [rolSeleccionado]="rol" (actualizarLista)="getAllRoles()"></app-crear-rol>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nombre</th>
+        <th>Descripcion</th>
+    </tr>
+    @for (rol of roles; track rol.idRol) {
+        <tr>
+            <td>{{ rol.idRol }}</td>
+            <td>{{ rol.nombre }}</td>
+            <td>{{ rol.descripcion }}</td>
+            <td>
+                <button type="button" (click)="loadRol(rol)">Editar</button>
+                <button type="button" (click)="deleteRol(rol.idRol)">Eliminar</button>
+            </td>
+        </tr>
+    }
+</table>
