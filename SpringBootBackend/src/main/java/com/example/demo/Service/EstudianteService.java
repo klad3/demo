@@ -6,10 +6,10 @@ import com.example.demo.Entity.Estudiante;
 
 public interface EstudianteService {
 
-    Estudiante matricularEstudiante(Estudiante estudiante, Long idAula);
-    List<Estudiante> listarTodosLosEstudiantes();
+    Estudiante guardarEstudiante(Estudiante estudiante, Long idAula);
+    List<Estudiante> listarEstudiantes();
     List<Estudiante> listarEstudiantesPorAula(Long idAula);
-    Estudiante obtenerDetallesDeEstudiante(Long id);
+    Estudiante obtenerEstudiante(Long id);
     Estudiante actualizarEstudiante(Long id, Estudiante estudiante);
-    void eliminarMatriculaDeEstudiante(Long id);
+    void eliminarEstudiante(Long id);
 }

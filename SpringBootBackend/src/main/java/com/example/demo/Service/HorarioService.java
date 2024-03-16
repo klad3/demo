@@ -7,9 +7,9 @@ import com.example.demo.Entity.Horario;
 
 public interface HorarioService {
 
-    Horario crearHorario(HorarioDto horarioDto);
-    List<Horario> listarTodosLosHorarios();
-    Horario obtenerDetallesDeHorario(Long id);
+    Horario guardarHorario(HorarioDto horarioDto);
+    List<Horario> listaHorarios();
+    Horario obtenerHorario(Long id);
     Horario actualizarHorario(Long id, Horario Horario);
     void eliminarHorario(Long id);
 }

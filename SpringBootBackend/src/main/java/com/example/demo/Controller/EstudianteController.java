@@ -30,13 +30,13 @@ public class EstudianteController {
 
     @PostMapping("/matricular")
     public ResponseEntity<Estudiante> matricularEstudiante(@RequestBody Estudiante estudiante, @RequestParam Long idAula) {
-        Estudiante estudianteMatriculado = estudianteService.matricularEstudiante(estudiante, idAula);
+        Estudiante estudianteMatriculado = estudianteService.guardarEstudiante(estudiante, idAula);
         return new ResponseEntity<>(estudianteMatriculado, HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity<List<Estudiante>> listarTodosLosEstudiantes() {
-        List<Estudiante> estudiantes = estudianteService.listarTodosLosEstudiantes();
+        List<Estudiante> estudiantes = estudianteService.listarEstudiantes();
         return ResponseEntity.ok(estudiantes);
     }
 
@@ -48,7 +48,7 @@ public class EstudianteController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Estudiante> obtenerDetallesDeEstudiante(@PathVariable Long id) {
-        Estudiante estudiante = estudianteService.obtenerDetallesDeEstudiante(id);
+        Estudiante estudiante = estudianteService.obtenerEstudiante(id);
         return ResponseEntity.ok(estudiante);
     }
 
@@ -60,7 +60,7 @@ public class EstudianteController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminarMatriculaDeEstudiante(@PathVariable Long id) {
-        estudianteService.eliminarMatriculaDeEstudiante(id);
+        estudianteService.eliminarEstudiante(id);
         return ResponseEntity.noContent().build();
     }
 }

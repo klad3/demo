@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.example.demo.Controller.Dto.ProfesorDto;
 import com.example.demo.Entity.Profesor;
 import com.example.demo.Service.ProfesorService;
 import lombok.RequiredArgsConstructor;
@@ -28,8 +29,14 @@ public class ProfesorController {
     }
 
     @PostMapping
-    public ResponseEntity<Profesor> crearProfesor(@RequestBody Profesor Profesor) {
-        Profesor nuevoProfesor = profesorService.guardarProfesor(Profesor);
+    public ResponseEntity<Profesor> crearProfesor(@RequestBody ProfesorDto ProfesorDto) {
+        Profesor nuevoProfesor = profesorService.guardarProfesor(ProfesorDto);
+        return new ResponseEntity<>(nuevoProfesor, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Profesor> actualizarProfesor(@PathVariable Long id, @RequestBody Profesor profesor) {
+        Profesor nuevoProfesor = profesorService.actualizarProfesor(id, profesor);
         return new ResponseEntity<>(nuevoProfesor, HttpStatus.CREATED);
     }
 

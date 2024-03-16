@@ -30,6 +30,9 @@ public class DemoApplication {
 				registry.addMapping("/api/cursos/**")
 					.allowedOrigins(angularUrl)
 					.allowedMethods("POST", "GET", "PUT", "DELETE");
+				registry.addMapping("/api/profesores/**")
+					.allowedOrigins(angularUrl)
+					.allowedMethods("POST", "GET", "PUT", "DELETE");
 			}
 		};
 	}

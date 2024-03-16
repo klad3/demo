@@ -28,32 +28,22 @@ public class HorarioController {
 
     private final HorarioService horarioService;
 
-/* 
-    @PostMapping
-    public ResponseEntity<Horario> crearHorario(@RequestBody Horario Horario, @RequestParam Long idProfesor, @RequestParam Long idCurso) {
-        Horario HorarioMatriculado = horarioService.crearHorario(Horario, idProfesor, idCurso);
-     
-        return new ResponseEntity<>(HorarioMatriculado, HttpStatus.CREATED);
-    }
-*/
     @PostMapping
     public ResponseEntity<Horario> crearHorario(@RequestBody HorarioDto horarioDto) {
 
-        Horario NuevoHorario = horarioService.crearHorario(horarioDto);
-        
-        //return ResponseEntity.created(new URI("/api/horarios/")).build();
-        return new ResponseEntity<>(NuevoHorario, HttpStatus.CREATED);
+        Horario nuevoHorario = horarioService.guardarHorario(horarioDto);
+        return new ResponseEntity<>(nuevoHorario, HttpStatus.CREATED);
     }
 
     @GetMapping
     public ResponseEntity<List<Horario>> listarTodosLosHorarios() {
-        List<Horario> Horarios = horarioService.listarTodosLosHorarios();
+        List<Horario> Horarios = horarioService.listaHorarios();
         return ResponseEntity.ok(Horarios);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Horario> obtenerDetallesDeHorario(@PathVariable Long id) {
-        Horario Horario = horarioService.obtenerDetallesDeHorario(id);
+        Horario Horario = horarioService.obtenerHorario(id);
         return ResponseEntity.ok(Horario);
     }
 

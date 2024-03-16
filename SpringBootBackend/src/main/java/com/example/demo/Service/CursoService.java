@@ -6,11 +6,11 @@ import com.example.demo.Entity.Curso;
 
 public interface CursoService {
 
-    Curso crearCurso(Curso curso);
+    Curso guardarCurso(Curso curso);
 
-    List<Curso> listarTodosLosCursos();
+    List<Curso> listarCursos();
 
-    Curso obtenerCursoPorId(Long id);
+    Curso obtenerCurso(Long id);
 
     Curso actualizarCurso(Long id, Curso curso);
     

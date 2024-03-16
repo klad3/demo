@@ -23,7 +23,7 @@ public class EstudianteServiceImpl implements EstudianteService {
 
     @Override
     @Transactional
-    public Estudiante matricularEstudiante(Estudiante estudiante, Long idAula) {
+    public Estudiante guardarEstudiante(Estudiante estudiante, Long idAula) {
         // Encuentra el aula y asegúrate de que exista
         Aula aula = aulaRepository.findById(idAula).orElseThrow(() -> new RuntimeException("Aula no encontrada"));
 
@@ -36,7 +36,7 @@ public class EstudianteServiceImpl implements EstudianteService {
     }
 
     @Override
-    public List<Estudiante> listarTodosLosEstudiantes() {
+    public List<Estudiante> listarEstudiantes() {
         return estudianteRepository.findAll();
     }
 
@@ -51,13 +51,13 @@ public class EstudianteServiceImpl implements EstudianteService {
     }
 
     @Override
-    public Estudiante obtenerDetallesDeEstudiante(Long id) {
+    public Estudiante obtenerEstudiante(Long id) {
         return estudianteRepository.findById(id).orElseThrow(() -> new RuntimeException("Estudiante no encontrado"));
     }
 
     @Override
     public Estudiante actualizarEstudiante(Long id, Estudiante datosEstudiante) {
-        Estudiante estudiante = obtenerDetallesDeEstudiante(id);
+        Estudiante estudiante = obtenerEstudiante(id);
         estudiante.setDireccion(datosEstudiante.getDireccion());
         estudiante.setFechaNacimiento(datosEstudiante.getFechaNacimiento());
         // Actualizar otros campos necesarios
@@ -65,8 +65,8 @@ public class EstudianteServiceImpl implements EstudianteService {
     }
 
     @Override
-    public void eliminarMatriculaDeEstudiante(Long id) {
-        Estudiante estudiante = obtenerDetallesDeEstudiante(id);
+    public void eliminarEstudiante(Long id) {
+        Estudiante estudiante = obtenerEstudiante(id);
         estudianteRepository.delete(estudiante);
     }
 }

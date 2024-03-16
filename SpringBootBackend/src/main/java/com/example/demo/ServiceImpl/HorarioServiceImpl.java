@@ -41,7 +41,7 @@ public class HorarioServiceImpl implements HorarioService {
         return HorarioRepository.save(Horario);
     }
     */
-    public Horario crearHorario(HorarioDto horarioDto) {
+    public Horario guardarHorario(HorarioDto horarioDto) {
         Profesor profesor = profesorRepository.findById(horarioDto.getIdProfesor()).orElseThrow(() -> new RuntimeException("Profesor no encontrado"));
         Curso curso = cursoRepository.findById(horarioDto.getIdCurso()).orElseThrow(() -> new RuntimeException("Curso no encontrado"));
 

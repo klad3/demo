@@ -25,19 +25,19 @@ public class CursoController {
 
     @PostMapping
     public ResponseEntity<Curso> crearCurso(@RequestBody Curso curso) {
-        Curso nuevoCurso = cursoService.crearCurso(curso);
+        Curso nuevoCurso = cursoService.guardarCurso(curso);
         return ResponseEntity.ok(nuevoCurso);
     }
 
     @GetMapping
     public ResponseEntity<List<Curso>> listarTodosLosCursos() {
-        List<Curso> cursos = cursoService.listarTodosLosCursos();
+        List<Curso> cursos = cursoService.listarCursos();
         return ResponseEntity.ok(cursos);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<Curso> obtenerCursoPorId(@PathVariable Long id) {
-        Curso curso = cursoService.obtenerCursoPorId(id);
+        Curso curso = cursoService.obtenerCurso(id);
         return ResponseEntity.ok(curso);
     }
 

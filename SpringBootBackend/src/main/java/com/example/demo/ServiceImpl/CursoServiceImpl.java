@@ -19,17 +19,17 @@ public class CursoServiceImpl implements CursoService {
 
 
     @Override
-    public Curso crearCurso(Curso curso) {
+    public Curso guardarCurso(Curso curso) {
         return cursoRepository.save(curso);
     }
 
     @Override
-    public List<Curso> listarTodosLosCursos() {
+    public List<Curso> listarCursos() {
         return cursoRepository.findAll();
     }
 
     @Override
-    public Curso obtenerCursoPorId(Long id) {
+    public Curso obtenerCurso(Long id) {
         Optional<Curso> curso = cursoRepository.findById(id);
         if (!curso.isPresent()) {
             throw new RuntimeException("Curso no encontrado");
@@ -39,7 +39,7 @@ public class CursoServiceImpl implements CursoService {
 
     @Override
     public Curso actualizarCurso(Long id, Curso curso) {
-        Curso cursoExistente = obtenerCursoPorId(id);
+        Curso cursoExistente = obtenerCurso(id);
         cursoExistente.setNombreCurso(curso.getNombreCurso());
         cursoExistente.setDescripcion(curso.getDescripcion());
         cursoExistente.setCantidadHoras(curso.getCantidadHoras());
@@ -48,7 +48,7 @@ public class CursoServiceImpl implements CursoService {
 
     @Override
     public void eliminarCurso(Long id) {
-        Curso curso = obtenerCursoPorId(id);
+        Curso curso = obtenerCurso(id);
         cursoRepository.delete(curso);
     }
 }
