@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.Entity.Seccion;
 
 @Repository
-public interface SeccionRepository extends JpaRepository<Seccion, Integer> {
+public interface SeccionRepository extends JpaRepository<Seccion, Long> {
 
 }

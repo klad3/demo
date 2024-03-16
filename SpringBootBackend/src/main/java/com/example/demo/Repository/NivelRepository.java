@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.Entity.Nivel;
 
 @Repository
-public interface NivelRepository extends JpaRepository<Nivel, Integer> {
+public interface NivelRepository extends JpaRepository<Nivel, Long> {
 
 }

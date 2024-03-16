@@ -21,7 +21,8 @@ public class Usuario {
     private String nombres;
 
     private String apellidos;
-
+    /* 
     @OneToMany(mappedBy = "usuario")
     private Set<UsuarioRol> usuarioRol;
+    */
 }

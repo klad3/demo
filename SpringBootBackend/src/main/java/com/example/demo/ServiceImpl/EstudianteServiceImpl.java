@@ -23,7 +23,7 @@ public class EstudianteServiceImpl implements EstudianteService {
 
     @Override
     @Transactional
-    public Estudiante matricularEstudiante(Estudiante estudiante, Integer idAula) {
+    public Estudiante matricularEstudiante(Estudiante estudiante, Long idAula) {
         // Encuentra el aula y asegúrate de que exista
         Aula aula = aulaRepository.findById(idAula).orElseThrow(() -> new RuntimeException("Aula no encontrada"));
 
@@ -41,7 +41,7 @@ public class EstudianteServiceImpl implements EstudianteService {
     }
 
     @Override
-    public List<Estudiante> listarEstudiantesPorAula(Integer idAula) {
+    public List<Estudiante> listarEstudiantesPorAula(Long idAula) {
         // Encuentra el aula y asegúrate de que exista
         Aula aula = aulaRepository.findById(idAula).orElseThrow(() -> new RuntimeException("Aula no encontrada"));
 

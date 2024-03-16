@@ -6,9 +6,9 @@ import com.example.demo.Entity.Estudiante;
 
 public interface EstudianteService {
 
-    Estudiante matricularEstudiante(Estudiante estudiante, Integer idAula);
+    Estudiante matricularEstudiante(Estudiante estudiante, Long idAula);
     List<Estudiante> listarTodosLosEstudiantes();
-    List<Estudiante> listarEstudiantesPorAula(Integer idAula);
+    List<Estudiante> listarEstudiantesPorAula(Long idAula);
     Estudiante obtenerDetallesDeEstudiante(Long id);
     Estudiante actualizarEstudiante(Long id, Estudiante estudiante);
     void eliminarMatriculaDeEstudiante(Long id);

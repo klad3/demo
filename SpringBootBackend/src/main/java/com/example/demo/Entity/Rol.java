@@ -15,11 +15,12 @@ public class Rol {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
-    private Integer idRol;
+    private Long idRol;
 
     private String nombre;
     private String descripcion;
-
+    /* 
     @OneToMany(mappedBy = "rol")
-    private Set<UsuarioRol> usuarioRol;
+    private Set<UsuarioRol> usuarioRol; 
+    */
 }
