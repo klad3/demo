@@ -1,0 +1,19 @@
+<app-crear-profesor [profesorSeleccionado]="profesor" (actualizarLista)="getAllProfesores()"></app-crear-profesor>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Correo</th>
+        <th>ID de Usuario</th>
+    </tr>
+    @for (profesor of profesores; track profesor.idProfesor) {
+        <tr>
+            <td>{{ profesor.idProfesor }}</td>
+            <td>{{ profesor.correo }}</td>
+            <td>{{ profesor.usuario.idUsuario }}</td>
+            <td>
+                <button type="button" (click)="loadProfesor(profesor)">Editar</button>
+                <button type="button" (click)="deleteProfesor(profesor.idProfesor)">Eliminar</button>
+            </td>
+        </tr>
+    }
+</table>

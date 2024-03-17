@@ -19,8 +19,8 @@
                     <button class="list-group-item list-group-item-action list-group-item-light p-3" (click)="cambiarEstado(1)">Usuarios</button>
                     <button class="list-group-item list-group-item-action list-group-item-light p-3" (click)="cambiarEstado(2)">Roles</button>
                     <button class="list-group-item list-group-item-action list-group-item-light p-3" (click)="cambiarEstado(3)">Cursos</button>
+                    <button class="list-group-item list-group-item-action list-group-item-light p-3" (click)="cambiarEstado(4)">Profesores</button>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Estudiantes</a>
-                    <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profesores</a>
                     <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Aulas</a>
                 </div>
             </div>
@@ -47,6 +47,9 @@
                     }
                     @case (3) {
                         <app-curso-page />
+                    }
+                    @case (4) {
+                        <app-profesor-page />
                     }
                 }
             </div>

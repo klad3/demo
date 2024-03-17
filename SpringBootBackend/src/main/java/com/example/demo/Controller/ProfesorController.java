@@ -18,8 +18,8 @@ public class ProfesorController {
  
     @GetMapping
     public ResponseEntity<List<Profesor>> listarTodosLosProfesors() {
-        List<Profesor> Profesors = profesorService.listarProfesores();
-        return new ResponseEntity<>(Profesors, HttpStatus.OK);
+        List<Profesor> Profesores = profesorService.listarProfesores();
+        return new ResponseEntity<>(Profesores, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

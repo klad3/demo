@@ -1,0 +1,23 @@
+<h5 class="mb-5 text-lg font-bold tracking-tight text-gray-900 dark:text-white ">Detalles de profesor</h5>
+<form [formGroup]="profesorForm" class="w-full" (ngSubmit)="onSubmit()" novalidate>
+  <div class="mb-5">
+    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Correo</label>
+    <input type="email" id="email" class="form-control" placeholder="Correo..." formControlName="correo">
+    @if (profesorForm.get('correo')?.hasError('required') && profesorForm.get('correo')?.touched) {
+        <div class="form-error">El correo es requerido</div>
+    }
+  </div>
+  <div class="mb-5">
+    <label for="idUsuario" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">ID Usuario</label>
+    <input type="number" id="idUsuario" class="form-control" placeholder="Descripcion..." formControlName="idUsuario">
+    @if (profesorForm.get('idUsuario')?.hasError('required') && profesorForm.get('idUsuario')?.touched) {
+        <div class="form-error">El ID del usuario es requerido</div>
+    }
+  </div>
+  <button type="submit"
+    class="text-white bg-blue-700 hover:bg-blue-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Enviar</button>
+  <!-- <button type="button" (click)="onClose()"
+    class="text-white  ms-2 bg-gray-700 hover:bg-gray-800 font-medium rounded-lg w-full sm:w-auto px-5 py-2.5 text-center">Cancelar</button>
+  -->
+
+  </form>

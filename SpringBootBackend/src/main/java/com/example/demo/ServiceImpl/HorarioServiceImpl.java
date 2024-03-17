@@ -27,20 +27,6 @@ public class HorarioServiceImpl implements HorarioService {
 
     @Override
     @Transactional
-    /* 
-    public Horario crearHorario(Horario Horario, Long idProfesor, Long idCurso) {
-        // Encuentra el aula y asegúrate de que exista
-        Profesor profesor = profesorRepository.findById(idProfesor).orElseThrow(() -> new RuntimeException("Profesor no encontrado"));
-        Curso curso = cursoRepository.findById(idCurso).orElseThrow(() -> new RuntimeException("Curso no encontrado"));
-
-        // Establece el aula y los cursos para el Horario
-        Horario.setProfesor(profesor);
-        Horario.setCurso(curso);
-
-        // Guarda el Horario, esto también debería persistir la relación debido a la cascada
-        return HorarioRepository.save(Horario);
-    }
-    */
     public Horario guardarHorario(HorarioDto horarioDto) {
         Profesor profesor = profesorRepository.findById(horarioDto.getIdProfesor()).orElseThrow(() -> new RuntimeException("Profesor no encontrado"));
         Curso curso = cursoRepository.findById(horarioDto.getIdCurso()).orElseThrow(() -> new RuntimeException("Curso no encontrado"));
