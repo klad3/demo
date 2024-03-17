@@ -2,14 +2,11 @@ package com.example.demo.ServiceImpl;
 
 
 import com.example.demo.Controller.Dto.ProfesorDto;
-import com.example.demo.Entity.Curso;
-import com.example.demo.Entity.Horario;
 import com.example.demo.Entity.Profesor;
 import com.example.demo.Entity.Usuario;
 
 import jakarta.persistence.EntityNotFoundException;
 
-import com.example.demo.Repository.HorarioRepository;
 import com.example.demo.Repository.ProfesorRepository;
 import com.example.demo.Repository.UsuarioRepository;
 import com.example.demo.Service.ProfesorService;
@@ -38,7 +35,8 @@ public class ProfesorServiceImpl implements ProfesorService {
 
     @Override
     public Profesor guardarProfesor(ProfesorDto profesorDto) {
-        Usuario usuario = usuarioRepository.findById(profesorDto.getIdProfesor()).orElseThrow(() -> new RuntimeException("Profesor no encontrado"));
+        //Usuario usuario = usuarioRepository.findById(profesorDto.getIdProfesor()).orElseThrow(() -> new RuntimeException("Profesor no encontrado"));
+        Usuario usuario = usuarioRepository.findById(profesorDto.getIdUsuario()).orElseThrow(() -> new RuntimeException("Profesor no encontrado"));
 
         Profesor profesor = Profesor.builder()
                 .correo(profesorDto.getCorreo())
